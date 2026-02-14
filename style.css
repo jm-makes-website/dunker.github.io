@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.message {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+/* Cards */
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card-front {
+    background: #ff4b5c;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Buttons */
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4b5c;
+    color: white;
+}
+
+#noBtn {
+    background: white;
+    color: #ff4b5c;
+}
+
+/* Floating Hearts */
+
+.hearts span {
+    position: fixed;
+    bottom: -50px;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+.yes-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+

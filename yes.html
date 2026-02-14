@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>She Said Yes 💕</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            text-align: center;
+            color: white;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .yes-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+        
+        .big-heart {
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255, 75, 92, 0.9);
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 75, 92, 0.5);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .big-heart::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, 
+                rgb(233, 51, 151), 105, 180);
+            background-size: 400%;
+            border-radius: 25px;
+            z-index: -1;
+            animation: glow 3s linear infinite;
+        }
+
+        .big-heart::after {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(45deg, 
+                rgb(233, 51, 151), 105, 180);
+            background-size: 400%;
+            border-radius: 24px;
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.7;
+            animation: glow 3s linear infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 400% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .heart-text {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            box-sizing: border-box;
+            line-height: 1.5;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .floating-photos {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-photos img {
+            position: absolute;
+            bottom: -150px;
+            opacity: 0.7;
+            border-radius: 15px;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: translateY(-120vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-photos"></div>
+
+<div class="yes-container">
+    <div class="big-heart">
+        <div class="heart-text">
+            Can't wait to make more memories with you 💕
+        </div>
+    </div>
+</div>
+
+<script>
+const container = document.querySelector('.floating-photos');
+const totalImages = 31;
+
+for (let i = 1; i <= totalImages; i++) {
+    const img = document.createElement('img');
+    img.src = `images/image${i}.jfif`;
+
+    img.style.left = Math.random() * 100 + "vw";
+
+    const size = Math.random() * 80 + 80;
+    img.style.width = size + "px";
+
+    const duration = Math.random() * 5 + 8;
+    img.style.animationDuration = duration + "s";
+
+    const delay = Math.random() * 5;
+    img.style.animationDelay = delay + "s";
+
+    container.appendChild(img);
+}
+</script>
+
+</body>
+</html>
